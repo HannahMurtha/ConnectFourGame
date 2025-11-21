@@ -13,7 +13,7 @@ Locations of patterns and their files...
 
 * Observer Pattern based files are in the observers folder
 * Command Pattern based files are in the command folder
-* State Pattern is how we keep track of the state of the game (setupState, playerTurnState, OpponentTurnState, gameOverState)
+* State Pattern based files are in the state folder
 * Factory Pattern is CharacterFactory inside of characters folder
 * Strategy Pattern based files are in the strategy folder
 

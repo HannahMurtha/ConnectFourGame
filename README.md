@@ -19,10 +19,6 @@ Locations of patterns and their files...
 
 ***
 
-Sample Game options (same game, different grid options)
-
-
-![](images/5x6.png)
-
+Sample Game 
 
 ![](images/6x7.png)

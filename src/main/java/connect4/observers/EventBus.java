@@ -1,0 +1,6 @@
+/*
+win
+lose
+made a move
+undo move
+ */

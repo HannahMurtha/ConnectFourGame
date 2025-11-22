@@ -1,33 +1,21 @@
 package connect4.characters;
 
 /**
- * Human player in Connect Four game
- * Contains player information and board configuration
+ * Represents a human player in Connect Four game
+ * Always plays on an 8x8 board
  */
-public class Player {
+public class Player implements Character {
     private final String name;
-    private final int rows;
-    private final int cols;
     private final char piece; // Player's game piece ('X')
 
-    public Player(String name, int rows, int cols, char piece) {
+    public Player(String name, char piece) {
         this.name = name;
-        this.rows = rows;
-        this.cols = cols;
         this.piece = piece;
     }
 
-    // Getters
+    // getters
     public String getName() {
         return name;
-    }
-
-    public int getRows() {
-        return rows;
-    }
-
-    public int getCols() {
-        return cols;
     }
 
     public char getPiece() {
@@ -38,7 +26,7 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
-                ", boardSize=" + rows + "x" + cols +
+                ", boardSize=8x8" +
                 ", piece=" + piece +
                 '}';
     }

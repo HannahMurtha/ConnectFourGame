@@ -1,5 +1,5 @@
 # ConnectFourGame
-Connect 4 between 1 person VS robot. Player can choose a 6x7 or 5x6 grid to play on as well as the opponent difficulty.
+Connect 4 between 1 person VS robot. Player can choose opponent difficulty.
  ***
 Patterns Used...
 * Observer Pattern, the game board will update the observers when the board changes or game ends
@@ -19,6 +19,6 @@ Locations of patterns and their files...
 
 ***
 
-Sample Game 
+Sample Game with opponent difficulty 1 below
 
-![](images/6x7.png)
+![](images/7x7.png)

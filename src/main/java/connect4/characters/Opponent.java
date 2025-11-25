@@ -2,38 +2,25 @@ package connect4.characters;
 
 /**
  * Represents an AI opponent in Connect Four game
- * Contains opponent information, difficulty level, and board configuration.
+ * Always plays on a 7x7 board with piece 'O'
  */
-public class Opponent {
+public class Opponent implements Character {
     private final String name;
-    private final int difficulty; // 1 = dumb, 2 = random, 3 = defensive
-    private final int rows;
-    private final int cols;
-    private final char piece; // Opponent's game piece ('O')
+    private final int difficulty; // 1 = leftmost, 2 = random, 3 = defensive
+    private final char piece = 'O'; // Opponent always uses 'O'
 
-    public Opponent(String name, int difficulty, int rows, int cols, char piece) {
+    public Opponent(String name, int difficulty) {
         this.name = name;
         this.difficulty = difficulty;
-        this.rows = rows;
-        this.cols = cols;
-        this.piece = piece;
     }
 
-    // Getters
+    // getters
     public String getName() {
         return name;
     }
 
     public int getDifficulty() {
         return difficulty;
-    }
-
-    public int getRows() {
-        return rows;
-    }
-
-    public int getCols() {
-        return cols;
     }
 
     public char getPiece() {
@@ -45,7 +32,7 @@ public class Opponent {
         return "Opponent{" +
                 "name='" + name + '\'' +
                 ", difficulty=" + difficulty +
-                ", boardSize=" + rows + "x" + cols +
+                ", boardSize=7x7" +
                 ", piece=" + piece +
                 '}';
     }

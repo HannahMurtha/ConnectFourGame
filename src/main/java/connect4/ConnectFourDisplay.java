@@ -10,17 +10,17 @@
 // */
 //public class ConnectFourDisplay {
 //    private char[][] board;
-//    private int rows; // 8
-//    private int cols; // 8
+//    private int rows; // 7
+//    private int cols; // 7
 //    private int numOfTurns;
 //    private String winner;
 //    private WinStrategy winStrategy;
 //    private EventBus eventBus;
 //
 //    public ConnectFourDisplay() { // constructor of the board
-//        this.rows = 8;
-//        this.cols = 8;
-//        this.board = new char[8][8]; // mostly *
+//        this.rows = 7;
+//        this.cols = 7;
+//        this.board = new char[7][7]; // mostly *
 //        this.numOfTurns = 0;
 //        this.eventBus = new EventBus();
 //        initializeBoard();

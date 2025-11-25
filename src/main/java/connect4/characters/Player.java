@@ -2,7 +2,7 @@ package connect4.characters;
 
 /**
  * Represents a human player in Connect Four game
- * Always plays on an 8x8 board
+ * Always plays on an 7x7 board
  */
 public class Player implements Character {
     private final String name;
@@ -26,7 +26,7 @@ public class Player implements Character {
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
-                ", boardSize=8x8" +
+                ", boardSize=7x7" +
                 ", piece=" + piece +
                 '}';
     }

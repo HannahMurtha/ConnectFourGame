@@ -2,7 +2,7 @@ package connect4.characters;
 
 /**
  * Factory class for creating Player and Opponent instances
- * Play on an 8x8 board
+ * Play on a 7x7 board
  */
 public class CharacterFactory {
 

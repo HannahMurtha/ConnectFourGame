@@ -2,7 +2,7 @@ package connect4.characters;
 
 /**
  * Represents an AI opponent in Connect Four game
- * Always plays on an 8x8 board with piece 'O'
+ * Always plays on a 7x7 board with piece 'O'
  */
 public class Opponent implements Character {
     private final String name;
@@ -32,7 +32,7 @@ public class Opponent implements Character {
         return "Opponent{" +
                 "name='" + name + '\'' +
                 ", difficulty=" + difficulty +
-                ", boardSize=8x8" +
+                ", boardSize=7x7" +
                 ", piece=" + piece +
                 '}';
     }

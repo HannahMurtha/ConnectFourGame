@@ -8,8 +8,14 @@ import java.util.List;
  */
 public class PlayerStrategy {
     private List<WinStrategy> strategies;
+    private final char[][] board;
+    private final int rows;
+    private final int cols;
 
-    public PlayerStrategy() {
+    public PlayerStrategy(char[][] board, int rows, int cols) {
+        this.board = board;
+        this.rows = rows;
+        this.cols = cols;
         strategies = new ArrayList<>();
         strategies.add(new VerticalWinStrategy());
         strategies.add(new HorizontalWinStrategy());
@@ -27,5 +33,19 @@ public class PlayerStrategy {
             }
         }
         return null;
+    }
+
+    /**
+     * Check if placing a piece at (row, col) results in a win
+     * This method is called after each move
+     */
+    public boolean checkWin(int row, int col, char piece) {
+        // Check all win strategies
+        for (WinStrategy strategy : strategies) {
+            if (strategy.checkWin(board, piece)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

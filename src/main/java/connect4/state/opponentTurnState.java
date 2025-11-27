@@ -1,5 +1,7 @@
 package connect4.state;
 import connect4.command.Command;
+import connect4.command.PlacePieceCommand;
+import connect4.characters.Opponent;
 
 /**
  * State when it's the opponent's (AI) turn
@@ -7,20 +9,34 @@ import connect4.command.Command;
  */
 public class opponentTurnState implements State {
 
+    private final Opponent opponent;
+    private final char[][] board;
+    private final int rows;
+
+    public opponentTurnState(Opponent opponent, char[][] board, int rows) {
+        this.opponent = opponent;
+        this.board = board;
+        this.rows = rows;
+    }
+
     @Override
     public Command makeMove(int column) {
-        System.out.println("Opponent making move in column " + column); // AI logic will determine the column based on difficulty
-        return null; // Will be replaced with actual Command creation
+        // AI chooses column automatically using strategy
+        int aiColumn = opponent.chooseColumn();
+        System.out.println("Opponent making move in column " + (aiColumn + 1));
+
+        // Create and return the command
+        return new PlacePieceCommand(board, aiColumn, opponent.getPiece(), rows);
     }
 
     @Override
     public State nextState() {
-        return new playerTurnState(); // back to player turn usually
+        return new playerTurnState(); // back to player turn
     }
 
     @Override
     public String getStateName() {
-        return "OPPONENT_TURN"; // update the state
+        return "OPPONENT_TURN";
     }
 
     @Override

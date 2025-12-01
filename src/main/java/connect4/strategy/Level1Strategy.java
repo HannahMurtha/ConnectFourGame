@@ -1,22 +1,35 @@
 package connect4.strategy;
 
 /**
- * Level 1 AI: Places piece in the leftmost available column
+ * Level 1: Dumb AI - Always places on leftmost available column
  */
-public class Level1Strategy implements OpponentStrategy {
+public class Level1Strategy implements IOpponentStrategy {
+
+    private final char[][] board;
+    private final int cols;
+
+    public Level1Strategy(char[][] board, int cols) {
+        this.board = board;
+        this.cols = cols;
+    }
 
     @Override
-    public int chooseColumn(char[][] board) {
-        int cols = board[0].length;
-
-        // Find leftmost available column
+    public int chooseColumn() {
+        // Place on the leftmost available column
         for (int col = 0; col < cols; col++) {
-            if (board[0][col] == '*') {
+            if (isColumnAvailable(col)) {
                 return col;
             }
         }
+        return -1; // Board is full
+    }
 
-        // No columns available (board full)
-        return -1;
+    private boolean isColumnAvailable(int col) {
+        return col >= 0 && col < cols && board[0][col] == ' ';
+    }
+
+    @Override
+    public String getStrategyName() {
+        return "Level 1 - Leftmost";
     }
 }

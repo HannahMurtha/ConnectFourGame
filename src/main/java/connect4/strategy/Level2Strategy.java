@@ -1,37 +1,48 @@
 package connect4.strategy;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
- * Level 2 AI: Places piece in a random available column
+ * Level 2: Random AI - Places pieces randomly
  */
-public class Level2Strategy implements OpponentStrategy {
-    private Random random;
+public class Level2Strategy implements IOpponentStrategy {
 
-    public Level2Strategy() {
+    private final char[][] board;
+    private final int cols;
+    private final Random random;
+
+    public Level2Strategy(char[][] board, int cols) {
+        this.board = board;
+        this.cols = cols;
         this.random = new Random();
     }
 
     @Override
-    public int chooseColumn(char[][] board) {
-        int cols = board[0].length;
-        List<Integer> availableColumns = new ArrayList<>();
+    public int chooseColumn() {
+        int attempts = 0;
+        while (attempts < cols * 2) {
+            int col = random.nextInt(cols);
+            if (isColumnAvailable(col)) {
+                return col;
+            }
+            attempts++;
+        }
 
-        // Find all available columns
+        // Fallback to leftmost if random fails
         for (int col = 0; col < cols; col++) {
-            if (board[0][col] == '*') {
-                availableColumns.add(col);
+            if (isColumnAvailable(col)) {
+                return col;
             }
         }
-
-        // Return random available column
-        if (!availableColumns.isEmpty()) {
-            return availableColumns.get(random.nextInt(availableColumns.size()));
-        }
-
-        // No columns available (board full)
         return -1;
+    }
+
+    private boolean isColumnAvailable(int col) {
+        return col >= 0 && col < cols && board[0][col] == ' ';
+    }
+
+    @Override
+    public String getStrategyName() {
+        return "Level 2 - Random";
     }
 }

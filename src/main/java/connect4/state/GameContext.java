@@ -33,7 +33,7 @@ public class GameContext {
         this.eventBus = eventBus;
         this.winChecker = winChecker;
         this.lastCommand = null;
-    }
+    } // prolly should be builder pattern at this point lol
 
     // Getters
     public Scanner getScanner() { return scanner; }

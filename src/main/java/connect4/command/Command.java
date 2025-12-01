@@ -1,8 +1,8 @@
 package connect4.command;
 
 /**
- * Command interface for Connect Four moves.
- * Encapsulates a move action with execute and undo functionality.
+ * Command interface for Connect Four moves
+ * Encapsulates a move action with execute and undo functionality
  */
 public interface Command {
 

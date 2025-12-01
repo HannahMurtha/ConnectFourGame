@@ -22,25 +22,9 @@ public class PlayerStrategy {
         strategies.add(new DiagonalWinStrategy());
     }
 
-    /**
-     * Check if the given piece has won using any strategy
-     * @return The winning strategy if won, null otherwise
-     */
-    public WinStrategy checkForWin(char[][] board, char piece) {
-        for (WinStrategy strategy : strategies) {
-            if (strategy.checkWin(board, piece)) {
-                return strategy;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Check if placing a piece at (row, col) results in a win
-     * This method is called after each move
-     */
+    // check if win
     public boolean checkWin(int row, int col, char piece) {
-        // Check all win strategies
+        // check all win strategies
         for (WinStrategy strategy : strategies) {
             if (strategy.checkWin(board, piece)) {
                 return true;

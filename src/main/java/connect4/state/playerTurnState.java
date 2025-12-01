@@ -5,8 +5,8 @@ import connect4.command.PlacePieceCommand;
 import connect4.observers.EventType;
 
 /**
- * State when it's the player's turn
- * Handles player input, move execution, win checking, and state transitions
+ * states when it's the player's turn
+ * Handles player input, move execution, win checking and state transitions
  */
 public class playerTurnState implements State {
 
@@ -18,7 +18,7 @@ public class playerTurnState implements State {
 
         String input = context.getScanner().nextLine().trim();
 
-        // Handle undo
+        // undo
         if (input.equalsIgnoreCase("u")) {
             Command lastCommand = context.getLastCommand();
             if (lastCommand != null && lastCommand.undo()) {
@@ -27,10 +27,10 @@ public class playerTurnState implements State {
             } else {
                 System.out.println("Cannot undo!");
             }
-            return this; // Stay in player turn
+            return this; // stay in player turn
         }
 
-        // Parse column input
+        // parse column input
         try {
             int col = Integer.parseInt(input) - 1;
 
@@ -39,7 +39,7 @@ public class playerTurnState implements State {
                 return this; // Stay in player turn
             }
 
-            // Create and execute command
+            // create and execute command
             Command command = new PlacePieceCommand(
                     context.getBoard(),
                     col,
@@ -49,10 +49,10 @@ public class playerTurnState implements State {
 
             if (!command.execute()) {
                 System.out.println("Column is full! Try another.");
-                return this; // Stay in player turn
+                return this; // stay in player turn
             }
 
-            // Command executed successfully
+            // command executed successfully
             context.setLastCommand(command);
             context.getEventBus().publish(EventType.MADE_A_MOVE, command);
 
@@ -75,7 +75,7 @@ public class playerTurnState implements State {
 
         } catch (NumberFormatException e) {
             System.out.println("Invalid input! Enter a number 1-7 or 'u' to undo.");
-            return this; // Stay in player turn
+            return this; // stay in player turn
         }
     }
 

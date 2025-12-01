@@ -2,7 +2,7 @@ package connect4.state;
 
 /**
  * State when the game has ended (win, loss, or draw)
- * Terminal state - game cannot continue from here
+ * is the game over ?
  */
 public class gameOverState implements State {
 

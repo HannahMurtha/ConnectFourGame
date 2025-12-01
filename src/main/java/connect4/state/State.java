@@ -1,20 +1,21 @@
 package connect4.state;
 
-import connect4.command.Command;
+import java.util.Scanner;
 
 /**
  * State interface for Connect Four game states.
- * Defines the contract for all game states.
+ * Each state handles its own behavior and transitions.
  */
 public interface State {
 
-    Command makeMove(int column); // handle moves in the current state
+    /**
+     * Handle the current turn/state logic
+     * @param context Contains all game objects needed
+     * @return The next state (or this if staying in same state)
+     */
+    State handleTurn(GameContext context);
 
-    State nextState(); // order matters! setupState -> playerTurnState -> opponenetTurnState -> repeat -> gameOverState
+    String getStateName();
 
-    String getStateName(); // get the current state name
-
-    boolean canUndo(); // return true if you can undo
-
-    boolean undo(); // handles undo operation
+    boolean isGameOver();
 }

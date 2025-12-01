@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class EventBus {
     private static EventBus instance;
-    private Map<EventType, List<IObserver>> observers;
+    private final Map<EventType, List<IObserver>> observers;
 
     private EventBus() {
         observers = new HashMap<>();

@@ -19,6 +19,6 @@ Locations of patterns and their files...
 
 ***
 
-Sample Game with opponent difficulty 1 below
+End of a sample game with opponent difficulty 1 below. 
 
-![](images/7x7.png)
+![](images/gameSample.png)

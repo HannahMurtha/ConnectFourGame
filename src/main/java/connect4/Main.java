@@ -21,6 +21,16 @@ public class Main {
 
         System.out.println("=== Connect Four Game ===\n");
 
+        // set player name
+        System.out.print("Enter your name: ");
+        String playerName = scanner.nextLine().trim();
+
+        // default if empty
+        if (playerName.isEmpty()) {
+            playerName = "Player 1";
+        }
+        System.out.println();
+
         // Let player choose difficulty
         System.out.println("Choose opponent difficulty:");
         System.out.println("1 - Easy (Leftmost placement)");
@@ -43,7 +53,7 @@ public class Main {
         System.out.println();
 
         // 1. Create player and opponent (6 rows, 7 cols)
-        Player player = CharacterFactory.createPlayer("Player 1", 6, 7);
+        Player player = CharacterFactory.createPlayer(playerName, 6, 7);
         Opponent opponent = CharacterFactory.createOpponent("AI Bot", difficulty, 6, 7);
 
         System.out.println("Characters created:");
@@ -119,7 +129,7 @@ public class Main {
                         if (winChecker.checkWin(command.getRow(), command.getColumn(), player.getPiece())) {
                             currentState = new gameOverState(player.getName());
                             eventBus.publish(EventType.WIN, player.getName());
-                            eventBus.publish(EventType.LOSE, String.valueOf(opponent.getPiece()));
+                            eventBus.publish(EventType.LOSE, opponent.getName());
                             gameRunning = false;
                         } else if (isBoardFull(board)) {
                             currentState = new gameOverState("Draw");
@@ -161,7 +171,7 @@ public class Main {
                     if (winChecker.checkWin(command.getRow(), command.getColumn(), opponent.getPiece())) {
                         currentState = new gameOverState(opponent.getName());
                         eventBus.publish(EventType.WIN, opponent.getName());
-                        eventBus.publish(EventType.LOSE, String.valueOf(player.getPiece()));
+                        eventBus.publish(EventType.LOSE, player.getName());
                         gameRunning = false;
                     } else if (isBoardFull(board)) {
                         currentState = new gameOverState("Draw");

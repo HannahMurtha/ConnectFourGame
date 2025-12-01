@@ -14,7 +14,7 @@ Connect 4 between 1 person VS robot. Player can choose opponent difficulty and e
 * Observer Pattern based files are in the observers folder (EventBus, IObserver, EventType)
 * Command Pattern based files are in the command folder (Command interface, PlacePieceCommand)
 * State Pattern based files are in the state folder (State interface, setupState, playerTurnState, opponentTurnState, gameOverState, GameContext)
-* Factory Pattern is CharacterFactory inside of characters folder
+* Factory Pattern is CharacterFactory inside of characters folder, and there is also a StrategyFactory
 * Strategy Pattern based files are in the strategy folder:
     * Win strategies: VerticalWinStrategy, HorizontalWinStrategy, DiagonalWinStrategy
     * Opponent AI strategies: Level1Strategy, Level2Strategy, Level3Strategy, StrategyFactory

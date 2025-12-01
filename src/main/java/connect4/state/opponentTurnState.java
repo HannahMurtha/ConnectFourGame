@@ -1,37 +1,61 @@
 package connect4.state;
+
 import connect4.command.Command;
 import connect4.command.PlacePieceCommand;
-import connect4.characters.Opponent;
+import connect4.observers.EventType;
 
 /**
  * State when it's the opponent's (AI) turn
- * AI makes automatic moves, player cannot intervene
+ * Handles AI move execution, win checking, and state transitions
  */
 public class opponentTurnState implements State {
 
-    private final Opponent opponent;
-    private final char[][] board;
-    private final int rows;
-
-    public opponentTurnState(Opponent opponent, char[][] board, int rows) {
-        this.opponent = opponent;
-        this.board = board;
-        this.rows = rows;
-    }
-
     @Override
-    public Command makeMove(int column) {
-        // AI chooses column automatically using strategy
-        int aiColumn = opponent.chooseColumn();
-        System.out.println("Opponent making move in column " + (aiColumn + 1));
+    public State handleTurn(GameContext context) {
+        System.out.println("Current State: " + getStateName());
+        System.out.println(context.getOpponent().getName() + "'s turn...");
 
-        // Create and return the command
-        return new PlacePieceCommand(board, aiColumn, opponent.getPiece(), rows);
-    }
+        // AI chooses column
+        int aiCol = context.getOpponent().chooseColumn();
 
-    @Override
-    public State nextState() {
-        return new playerTurnState(); // back to player turn
+        if (aiCol == -1) {
+            System.out.println("Board is full! It's a draw.");
+            context.getEventBus().publish(EventType.WIN, "Draw");
+            return new gameOverState("Draw");
+        }
+
+        // Create and execute command
+        Command command = new PlacePieceCommand(
+                context.getBoard(),
+                aiCol,
+                context.getOpponent().getPiece(),
+                context.getRows()
+        );
+
+        if (!command.execute()) {
+            System.out.println("AI move failed!");
+            return this; // Stay in opponent turn (shouldn't happen)
+        }
+
+        System.out.println(context.getOpponent().getName() + " placed piece in column " + (aiCol + 1));
+        context.getEventBus().publish(EventType.MADE_A_MOVE, command);
+
+        // Check for win
+        if (context.getWinChecker().checkWin(command.getRow(), command.getColumn(),
+                context.getOpponent().getPiece())) {
+            context.getEventBus().publish(EventType.WIN, context.getOpponent().getName());
+            context.getEventBus().publish(EventType.LOSE, context.getPlayer().getName());
+            return new gameOverState(context.getOpponent().getName());
+        }
+
+        // Check for draw
+        if (context.isBoardFull()) {
+            context.getEventBus().publish(EventType.WIN, "Draw");
+            return new gameOverState("Draw");
+        }
+
+        // Switch back to player turn
+        return new playerTurnState();
     }
 
     @Override
@@ -40,13 +64,7 @@ public class opponentTurnState implements State {
     }
 
     @Override
-    public boolean canUndo() {
-        return false; // cannot undo during opponent's turn
-    }
-
-    @Override
-    public boolean undo() {
-        System.out.println("Cannot undo during opponent's turn.");
+    public boolean isGameOver() {
         return false;
     }
 }

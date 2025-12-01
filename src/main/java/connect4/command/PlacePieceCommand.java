@@ -1,8 +1,8 @@
 package connect4.command;
 
 /**
- * Command for placing a piece on the board
- * Supports execute and undo operations
+ * Command for placing a piece on the board (encapsulate game logic)
+ * execute and undo operations !!!
  */
 public class PlacePieceCommand implements Command {
 

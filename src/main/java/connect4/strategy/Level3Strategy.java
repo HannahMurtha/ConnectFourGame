@@ -24,6 +24,7 @@ public class Level3Strategy implements IOpponentStrategy {
         this.random = new Random();
     }
 
+    // -------------- ASSISTED BY AI AND THE INTERNET FOR LOGIC HERE!!! ------------------
     @Override
     public int chooseColumn() {
         // First, check if we can block a winning move (3 in a row)
@@ -141,6 +142,8 @@ public class Level3Strategy implements IOpponentStrategy {
         }
         return -1;
     }
+
+    // -------------- ASSISTED BY AI AND THE INTERNET FOR LOGIC ENDS HERE!!! ------------------
 
     @Override
     public String getStrategyName() {

@@ -45,9 +45,7 @@ public class OpponentStrategy {
         }
     }
 
-    /**
-     * Level 1: Place on the leftmost available column
-     */
+    // 1 - leftmost available option
     private int leftmostMove() {
         for (int col = 0; col < cols; col++) {
             if (isColumnAvailable(col)) {
@@ -57,9 +55,7 @@ public class OpponentStrategy {
         return -1; // Board is full
     }
 
-    /**
-     * Level 2: Random placement
-     */
+    // 2 - random placement
     private int randomMove() {
         int attempts = 0;
         while (attempts < cols * 2) {
@@ -73,9 +69,9 @@ public class OpponentStrategy {
         return leftmostMove();
     }
 
-    /**
-     * Level 3: Defensive play - block player if they have 2 or 3 in a row
-     */
+    // -------------- ASSISTED BY AI AND THE INTERNET FOR LOGIC HERE!!! ------------------
+
+    // 3 - defensive placement
     private int defensiveMove() {
         // First, check if we can block a winning move (3 in a row)
         int blockCol = findBlockingMove(3);
@@ -95,9 +91,7 @@ public class OpponentStrategy {
         return randomMove();
     }
 
-    /**
-     * Find a column that would block the player from getting 'count' in a row
-     */
+    // find a col that would block the player from getting 4 in a row
     private int findBlockingMove(int count) {
         // Check each column
         for (int col = 0; col < cols; col++) {
@@ -122,9 +116,7 @@ public class OpponentStrategy {
         return -1;
     }
 
-    /**
-     * Check if placing a piece at (row, col) would block a threat
-     */
+    // does it block a threat
     private boolean checkThreat(int row, int col, char piece, int count) {
         // Check horizontal threat
         if (countInDirection(row, col, 0, 1, piece) +
@@ -153,9 +145,7 @@ public class OpponentStrategy {
         return false;
     }
 
-    /**
-     * Count consecutive pieces in a given direction
-     */
+    // counts consecutive pieces in a given direction
     private int countInDirection(int row, int col, int rowDir, int colDir, char piece) {
         int count = 0;
         int r = row + rowDir;
@@ -170,16 +160,13 @@ public class OpponentStrategy {
         return count;
     }
 
-    /**
-     * Check if a column has available space
-     */
+
+    // do it have availible space
     private boolean isColumnAvailable(int col) {
         return col >= 0 && col < cols && board[0][col] == ' ';
     }
 
-    /**
-     * Get the next available row in a column (where piece would drop)
-     */
+    // next availiable row in a col (where piece would drop)
     private int getNextAvailableRow(int col) {
         for (int row = rows - 1; row >= 0; row--) {
             if (board[row][col] == ' ') {
@@ -188,4 +175,6 @@ public class OpponentStrategy {
         }
         return -1;
     }
+
+    // -------------- ASSISTED BY AI AND THE INTERNET FOR LOGIC ENDS HERE!!! ------------------
 }

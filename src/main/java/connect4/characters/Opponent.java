@@ -4,8 +4,8 @@ import connect4.strategy.IOpponentStrategy;
 import connect4.strategy.StrategyFactory;
 
 /**
- * Represents an AI opponent in Connect Four game
- * Contains opponent information, difficulty level, and board configuration.
+ * AI opponent in Connect Four game
+ * Contains opponent information, difficulty level, and board configuration
  */
 public class Opponent implements Character {
     private final String name;

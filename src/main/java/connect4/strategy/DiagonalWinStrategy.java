@@ -10,6 +10,7 @@ public class DiagonalWinStrategy implements WinStrategy {
         int rows = board.length;
         int cols = board[0].length;
 
+        //-------------- ASSISTED BY AI AND THE INTERNET FOR LOGIC HERE!!! ------------------
         // Check diagonal down-right (\)
         for (int row = 0; row <= rows - 4; row++) {
             for (int col = 0; col <= cols - 4; col++) {
@@ -36,6 +37,8 @@ public class DiagonalWinStrategy implements WinStrategy {
 
         return false;
     }
+
+    // -------------- ASSISTED BY AI AND THE INTERNET FOR LOGIC ENDS HERE!!! ------------------
 
     @Override
     public String getWinType() {

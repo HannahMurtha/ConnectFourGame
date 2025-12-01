@@ -15,13 +15,13 @@ public class Level1Strategy implements IOpponentStrategy {
 
     @Override
     public int chooseColumn() {
-        // Place on the leftmost available column
+        // place on leftmost available col
         for (int col = 0; col < cols; col++) {
             if (isColumnAvailable(col)) {
                 return col;
             }
         }
-        return -1; // Board is full
+        return -1; // board is full
     }
 
     private boolean isColumnAvailable(int col) {

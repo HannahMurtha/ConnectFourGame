@@ -10,7 +10,7 @@ public class VerticalWinStrategy implements WinStrategy {
         int rows = board.length;
         int cols = board[0].length;
 
-        // Check each column
+        // check each column
         for (int col = 0; col < cols; col++) {
             int count = 0;
             for (int row = 0; row < rows; row++) {

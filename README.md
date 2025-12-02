@@ -1,12 +1,13 @@
 # ConnectFourGame
-Connect 4 between 1 person VS robot. Player can choose opponent difficulty and enter their own name.
+Connect 4 between 1 player VS robot, or player VS player. Player(s) create their own names and if going against the AI bot, the player will choose the difficulty.
  ***
 ## Patterns Used...
 * Observer Pattern, the game board will update the observers when the board changes or game ends
 * Command, each move is encapsulated as a Command (execute to place, undo to undo that choice)
 * State Pattern is how we keep track of the state of the game (setupState, playerTurnState, opponentTurnState, gameOverState). Each state handles its own behavior and transitions.
 * Factory Method, a CharacterFactory that creates Player and Opponent instances
-* Strategy Pattern, used for win checking strategies (vertical, horizontal, diagonal) and opponent AI behavior (Level 1 - Leftmost, Level 2 - Random, Level 3 - Defensive)
+* Strategy Pattern, used for win checking strategies (vertical, horizontal, diagonal) and opponent AI behavior 
+  * (Level 1 = Leftmost, Level 2 = Random, Level 3 = Defensive)
 ***
 
 ## Locations of patterns and their files...

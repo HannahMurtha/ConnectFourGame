@@ -30,8 +30,4 @@ public class gameOverState implements State {
     public boolean isGameOver() {
         return true;
     }
-
-    public String getWinner() {
-        return winner;
-    }
 }

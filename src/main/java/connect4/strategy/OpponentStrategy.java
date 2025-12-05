@@ -27,23 +27,7 @@ public class OpponentStrategy {
         this.opponentPiece = opponentPiece;
         this.playerPiece = playerPiece;
         this.random = new Random();
-    }
-
-    /**
-     * Choose a column based on difficulty level
-     */
-    public int chooseColumn() {
-        switch (difficulty) {
-            case 1:
-                return leftmostMove();
-            case 2:
-                return randomMove();
-            case 3:
-                return defensiveMove();
-            default:
-                return randomMove();
-        }
-    }
+    } // BUILDER
 
     // 1 - leftmost available option
     private int leftmostMove() {
@@ -161,7 +145,7 @@ public class OpponentStrategy {
     }
 
 
-    // do it have availible space
+    // do it have availible space in that col
     private boolean isColumnAvailable(int col) {
         return col >= 0 && col < cols && board[0][col] == ' ';
     }

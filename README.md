@@ -1,5 +1,5 @@
 # ConnectFourGame
-Connect 4 between 1 person VS robot. Player can choose opponent difficulty and enter their own name.
+Connect 4 between 1 person VS robot or Player VS Player. Player can choose opponent difficulty (if using bot) and enter their own name(s).
  ***
 ## Patterns Used...
 * Observer Pattern, the game board will update the observers when the board changes or game ends

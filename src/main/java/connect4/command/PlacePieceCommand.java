@@ -18,10 +18,10 @@ public class PlacePieceCommand implements Command {
         this.piece = piece; // place 'X' or 'O'
         this.rows = rows; // # rows
         this.row = -1; // Not yet placed
-    }
+    } // could've been Builder pattern
 
     @Override
-    public boolean execute() {
+    public boolean execute() { // AI helped here on the algorithm
         // Find the lowest empty row in the column (gravity effect)
         for (int r = rows - 1; r >= 0; r--) {
             if (board[r][column] == ' ') {

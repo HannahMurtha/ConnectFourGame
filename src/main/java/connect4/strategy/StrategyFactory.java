@@ -5,10 +5,8 @@ package connect4.strategy;
  */
 public class StrategyFactory {
 
-    public static IOpponentStrategy createStrategy(int difficulty, char[][] board,
-                                                   int rows, int cols,
-                                                   char opponentPiece, char playerPiece) {
-        switch (difficulty) {
+    public static IOpponentStrategy createStrategy(int difficulty, char[][] board, int rows, int cols, char opponentPiece, char playerPiece) {
+        switch (difficulty) { // player chooses diff against AI
             case 1:
                 return new Level1Strategy(board, cols);
             case 2:

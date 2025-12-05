@@ -5,7 +5,7 @@ import connect4.observers.IObserver;
 
 /**
  * Generates and displays the Connect Four board
- * Observes game events to update display
+ * observes game events to update display
  */
 public class ConnectFourDisplay implements IObserver {
 
@@ -45,7 +45,7 @@ public class ConnectFourDisplay implements IObserver {
         return board;
     }
 
-    @Override
+    @Override // output stuff
     public void update(EventType eventType, Object data) {
         switch (eventType) {
             case MADE_A_MOVE:

@@ -142,7 +142,6 @@ public class Level3Strategy implements IOpponentStrategy {
         }
         return -1;
     }
-
     // -------------- ASSISTED BY AI AND THE INTERNET FOR LOGIC ENDS HERE!!! ------------------
 
     @Override

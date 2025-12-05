@@ -13,7 +13,7 @@ public class Level1Strategy implements IOpponentStrategy {
         this.cols = cols;
     }
 
-    @Override
+    @Override // AI did this algorithm for me
     public int chooseColumn() {
         // place on leftmost available col
         for (int col = 0; col < cols; col++) {

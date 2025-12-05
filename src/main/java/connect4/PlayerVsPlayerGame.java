@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 /**
  * Player vs Player game mode
- * Two human players take turns
  */
 public class PlayerVsPlayerGame extends Game {
     private final Scanner scanner;
@@ -45,24 +44,24 @@ public class PlayerVsPlayerGame extends Game {
 
             String input = scanner.nextLine().trim();
 
-            // Handle undo
+            // undo
             if (input.equalsIgnoreCase("u")) {
                 if (handleUndo()) {
-                    isPlayer1Turn = !isPlayer1Turn; // Switch back to previous player
+                    isPlayer1Turn = !isPlayer1Turn; // Switch back to other player
                 }
                 continue;
             }
 
-            // Handle move
+            // move
             try {
                 int col = Integer.parseInt(input) - 1;
 
-                if (col < 0 || col > 6) {
+                if (col < 0 || col > 6) { // validation
                     System.out.println("Invalid column! Choose 1-7.");
                     continue;
                 }
 
-                // Execute move
+                // execute move
                 if (executeMove(col, currentPiece)) {
                     // Check for game end
                     if (checkWin(currentPlayerName, currentPiece)) {
@@ -70,7 +69,7 @@ public class PlayerVsPlayerGame extends Game {
                     } else if (checkDraw()) {
                         gameRunning = false;
                     } else {
-                        // Switch turns
+                        // Switch turns :)
                         isPlayer1Turn = !isPlayer1Turn;
                     }
                 } else {

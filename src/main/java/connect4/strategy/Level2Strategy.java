@@ -17,7 +17,7 @@ public class Level2Strategy implements IOpponentStrategy {
         this.random = new Random();
     }
 
-    @Override
+    @Override // AI helped with this too (the algorithm part)
     public int chooseColumn() {
         int attempts = 0;
         while (attempts < cols * 2) {

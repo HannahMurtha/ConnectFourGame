@@ -1,5 +1,4 @@
 package connect4;
-
 import connect4.characters.CharacterFactory;
 import connect4.characters.Player;
 import connect4.characters.Opponent;
@@ -11,7 +10,6 @@ import java.util.Scanner;
 
 /**
  * Player vs AI game mode
- * Human player vs computer opponent
  */
 public class PlayerVsAIGame extends Game {
     private final Scanner scanner;

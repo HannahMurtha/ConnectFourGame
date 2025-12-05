@@ -22,9 +22,7 @@ public class GameContext {
     private final PlayerStrategy winChecker;
     private Command lastCommand;
 
-    public GameContext(Scanner scanner, Player player, Opponent opponent,
-                       char[][] board, int rows, EventBus eventBus,
-                       PlayerStrategy winChecker) {
+    public GameContext(Scanner scanner, Player player, Opponent opponent, char[][] board, int rows, EventBus eventBus, PlayerStrategy winChecker) { // shouldve been builder but oh well
         this.scanner = scanner;
         this.player = player;
         this.opponent = opponent;

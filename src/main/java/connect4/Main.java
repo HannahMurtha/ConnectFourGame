@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * Main class for Connect Four game
- * Orchestrates game mode selection
+ * Game mode selection and kinda deals with inputs
  */
 public class Main {
     public static void main(String[] args) {
@@ -63,9 +63,9 @@ public class Main {
             System.out.println();
 
             System.out.println("Choose opponent difficulty:");
-            System.out.println("1 - Easy (Leftmost placement)");
-            System.out.println("2 - Medium (Random placement)");
-            System.out.println("3 - Hard (Defensive AI)");
+            System.out.println("1 - Easy");
+            System.out.println("2 - Medium");
+            System.out.println("3 - Hard");
             System.out.print("Enter difficulty (1-3): ");
 
             int difficulty = 2; // default
@@ -87,7 +87,6 @@ public class Main {
 
         // Play the game
         game.play();
-
         scanner.close();
     }
 }

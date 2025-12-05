@@ -7,6 +7,7 @@ import connect4.command.Command;
 
 /**
  * Base Game class with common game logic
+ * logic here happens **every** game
  */
 public abstract class Game {
     protected ConnectFourDisplay display;
@@ -31,14 +32,10 @@ public abstract class Game {
         eventBus.subscribe(EventType.LOSE, display);
     }
 
-    /**
-     * Start and run the game
-     */
+    // start and run game
     public abstract void play();
 
-    /**
-     * Check if the board is full (draw condition)
-     */
+    // is the board full
     protected boolean isBoardFull() {
         for (int c = 0; c < cols; c++) {
             if (board[0][c] == ' ') {
@@ -48,9 +45,7 @@ public abstract class Game {
         return true;
     }
 
-    /**
-     * Display the initial board
-     */
+    // load empty board
     protected void displayInitialBoard() {
         display.displayBoard();
     }

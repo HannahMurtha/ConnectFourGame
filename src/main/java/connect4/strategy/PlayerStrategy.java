@@ -1,5 +1,4 @@
 package connect4.strategy;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class PlayerStrategy {
         strategies.add(new VerticalWinStrategy());
         strategies.add(new HorizontalWinStrategy());
         strategies.add(new DiagonalWinStrategy());
-    }
+    } // Builder :(
 
     // check if win
     public boolean checkWin(int row, int col, char piece) {

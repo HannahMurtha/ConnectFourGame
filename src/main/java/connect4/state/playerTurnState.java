@@ -39,7 +39,7 @@ public class playerTurnState implements State {
                 return this; // Stay in player turn
             }
 
-            // create and execute command
+            // create and execute command same as opponent
             Command command = new PlacePieceCommand(
                     context.getBoard(),
                     col,

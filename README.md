@@ -29,6 +29,11 @@ Connect 4 between 1 person VS robot or Player VS Player. Player can choose oppon
 - Event-driven display updates
 
 ***
+## Tests
+We do not have 100% code coverage, but we do have some form of tests for most scripts. 
+To run the tests, right-click the java folder inside of "test" (src/main/test/java) and click *Run all tests with coverage*
+
+***
 
 End of a sample game with opponent difficulty 1 below.
 
